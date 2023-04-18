@@ -38,6 +38,9 @@ function updateCity(response) {
     let wind = document.querySelector("#wind-speed strong");
     let description = document.querySelector("#weather-is");
     let currentDate = document.querySelector("#date");
+    let weatherIcon = document.querySelector("#icon")
+
+    celsiusTemp = Math.round(response.data.temperature.current);
 
     console.log(response.data)
 
@@ -48,6 +51,8 @@ function updateCity(response) {
     wind.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
     description.innerHTML = response.data.condition.description;
     currentDate.innerHTML = formatDate(response.data.time * 1000);
+    weatherIcon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`)
+    weatherIcon.setAttribute("alt", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.description}.png`)
 }
 
 function updateLocation(event) {
@@ -64,19 +69,26 @@ function updateGeo(location) {
 
 function convertToFar(event) {
     event.preventDefault();
+    let fahTemp = (celsiusTemp * 9) / 5 + 32;
     let temperature = document.querySelector("#temperature");
-    temperature.innerHTML = "52";
+    temperature.innerHTML = Math.round(fahTemp);
+    temperatureCel.classList.remove("active");
+    temperatureFar.classList.add("active");
 }
 
 function convertToCel(event) {
     event.preventDefault();
     let temperature = document.querySelector("#temperature");
-    temperature.innerHTML = "13";
+    temperature.innerHTML = celsiusTemp;
+    temperatureFar.classList.remove("active");
+    temperatureCel.classList.add("active");
 }
 
 let apiKey = "06fa5f0c173ae8o9ctd4134fb2530e34";
 let apiUrl = "https://api.shecodes.io/weather/v1/current?";
 let unitsCel = "metric";
+
+let celsiusTemp = null;
 
 let newCity = document.querySelector(".d-flex")
 newCity.addEventListener("submit", searchCity);
@@ -84,8 +96,8 @@ newCity.addEventListener("submit", searchCity);
 let myLocation = document.querySelector("#my-location")
 myLocation.addEventListener("click", updateLocation)
 
-let temperatureCel = document.querySelector("#celsius");
-let temperatureFar = document.querySelector("#fahrenheit");
+let temperatureCel = document.querySelector(".units");
+let temperatureFar = document.querySelector(".imperial");
 
 temperatureFar.addEventListener("click", convertToFar);
 

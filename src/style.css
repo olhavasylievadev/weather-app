@@ -84,6 +84,10 @@ li strong {
     font-weight: bolder;
 }
 
+.weather-temperature:hover{
+    cursor: pointer;
+}
+
 .weather-temperature img {
     width: 55px;
     height: auto;
@@ -133,6 +137,11 @@ a .author {
     font-size: 20px;
     position: relative;
     top: -15px;
+}
+
+.weather-temperature .active {
+    color: black;
+    cursor: auto;
 }
 
 #date {
