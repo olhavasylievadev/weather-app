@@ -30,6 +30,12 @@ function formatDate(timestamp) {
     return `${today} ${hour}:${minute}`
 }
 
+function getForecast(coords) {
+    console.log(coords)
+    let apiForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}&units=${unitsCel}`;
+    axios.get(apiForecast).then(displayForecast);
+}
+
 function updateCity(response) {
     let currentCity = document.querySelector("h1");
     let currentTemperature = document.querySelector("#temperature");
@@ -53,6 +59,8 @@ function updateCity(response) {
     currentDate.innerHTML = formatDate(response.data.time * 1000);
     weatherIcon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`)
     weatherIcon.setAttribute("alt", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.description}.png`)
+
+    getForecast(response.data.coordinates);
 }
 
 function updateLocation(event) {
@@ -82,6 +90,51 @@ function convertToCel(event) {
     temperature.innerHTML = celsiusTemp;
     temperatureFar.classList.remove("active");
     temperatureCel.classList.add("active");
+}
+
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    return week[day];
+}
+
+function displayForecast(response) {
+    console.log(response.data)
+    let dailyForecast = response.data.daily;
+    let forecast = document.querySelector("#forecast");
+
+    let forecastHTML = `<div class="row">`;
+    dailyForecast.forEach(function (forecastDay, index) {
+        if (index < 5) {
+            forecastHTML =
+                forecastHTML +
+                `
+      <div class="col">
+        <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+        <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                    forecastDay.condition.icon
+                }.png"
+          alt="rain-day"
+          width=""
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"><strong> ${Math.round(
+                    forecastDay.temperature.maximum
+                )}° / </strong></span>
+          <span class="weather-forecast-temperature-min">${Math.round(
+                    forecastDay.temperature.minimum
+                )}° </span>
+        </div>
+      </div>
+  `;
+        }
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecast.innerHTML = forecastHTML;
 }
 
 let apiKey = "06fa5f0c173ae8o9ctd4134fb2530e34";

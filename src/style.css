@@ -100,23 +100,10 @@ li strong {
 
 .col {
     text-align: center;
+    max-width: 20%;
 }
 
-.image {
-    font-size: 2.5em;
-}
-
-.reg {
-    font-size: 16px;
-    font-weight: lighter;
-}
-
-.regular {
-    font-size: 16px;
-    font-weight: lighter;
-}
-
-.regular strong {
+.weather-forecast-temperature-max {
     color: #31486C;
 }
 
@@ -144,6 +131,24 @@ a .author {
 
 .text-weather {
     margin-top: 0.72em;
+}
+
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.weather-forecast strong {
+    font-weight: normal;
+    color: #31486C;
+}
+
+.weather-forecast-date {
+    font-size: 16px;
+    font-weight: lighter;
 }
 
 #date {
