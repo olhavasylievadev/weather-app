@@ -1,0 +1,121 @@
+body {
+    background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/073/423/original/Magda-Ehlers-clouds.jpg?1679679379");
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+h1 {
+    text-align: right;
+    color: #435F89;
+    line-height: 1.5em;
+}
+
+h2 {
+    font-size: 3.5em;
+    line-height: 1.5em;
+    color: #31486C;
+    font-weight: bolder;
+}
+
+a {
+    text-decoration: none;
+    color: #31486C;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.frame {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+    max-height: 800px;
+    background-color: white;
+    border: none;
+    border-radius: 16px;
+}
+
+.searchbar {
+    width: 85%;
+    border: solid 2px #A68DA4;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: all 200ms ease-in-out;
+}
+
+.searchbar:hover {
+    border: solid 2px #8885A7;
+}
+
+.searchbutton {
+    margin-left: 5px;
+    background-color: transparent;
+    color: black;
+    border: solid 2px #A68DA4;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: all 200ms ease-in-out;
+}
+
+.searchbutton:hover {
+    background-color: #8885A7;
+    color: white;
+    border: none;
+}
+
+.conditions {
+    position: relative;
+    top: -80px;
+    left: 380px;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+.conditions strong {
+    margin-left: 10px;
+    color: #31486C;
+    font-weight: bolder;
+}
+
+.col {
+    text-align: center;
+}
+
+.image {
+    font-size: 3.5em;
+}
+
+.reg {
+    font-size: 16px;
+}
+
+.regular {
+    font-size: 16px;
+}
+
+.regular strong {
+    color: #31486C;
+}
+
+a .author {
+    color: #A68DA4;;
+}
+
+.author {
+    text-align: center;
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+#windy {
+    padding-left: 33px;
+}
+
+#date {
+    position: relative;
+    top: -100px;
+    left: 380px;
+    font-size: 18px;
+    line-height: 1.5em;
+}

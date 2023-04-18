@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🌤️Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="src/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <br/>
+    <div class="frame">
+        <div class="d-flex flex-column gap-4">
+            <form class="d-flex">
+                <input class="form-control me-1 searchbar" type="search" id="my-city" placeholder="🔎Search for your city" aria-label="Search" value="">
+                <button class="btn btn-primary searchbutton" type="submit" id="search-city">Search</button>
+                <button class="btn btn-primary searchbutton" type="submit" id="my-location">Locate</button>
+            </form>
+        </div>
+        <br/>
+
+    <h1>
+        Berlin
+    </h1>
+    <h2>
+        <span>☁️  <span id="temperature">13</span></span><a href="#" id="celsius">°C</a>|<a href="#" id="fahrenheit">°F</a>
+    </h2>
+        <div id="date">
+            Today, time
+        </div>
+    <div class="conditions">
+        <div id="humidity">
+        Humidity:  <strong>67%</strong>
+        </div>
+        <div id="real-feel">
+        Feels like: <strong>12°C</strong>
+    </div>
+        <div id="wind-speed">
+        Wind: <strong id="windy">8 km/h</strong>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col reg">
+            Saturday
+        </div>
+        <div class="col reg">
+            Sunday
+        </div>
+        <div class="col reg">
+            Monday
+        </div>
+        <div class="col reg">
+            Tuesday
+        </div>
+        <div class="col reg">
+            Wednesday
+        </div>
+    </div>
+    <div class="row">
+        <div class="col image">
+            ☀️
+            <div class="row">
+                <div class="col regular">
+                    7° / <strong>12°</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col image">
+            ⛅️
+            <div class="row">
+                <div class="col regular">
+                    5° / <strong>11°</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col image">
+            ⛈️
+            <div class="row">
+                <div class="col regular">
+                    -1° / <strong>7°</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col image">
+            🌦️
+            <div class="row">
+                <div class="col regular">
+                    -2° / <strong>8°</strong>
+                </div>
+            </div>
+        </div>
+        <div class="col image">
+            🌤️
+            <div class="row">
+                <div class="col regular">
+                    2° / <strong>9°</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+        <br/>
+    <p class="author">
+        Coded by <a href="https://www.linkedin.com/in/vasylievaolha/">Olha Vasylieva</a>
+    </p>
+</div>
+</div>
+
+<script src="src/app.js"></script>
+</body>
+</html>
