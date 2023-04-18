@@ -4,11 +4,30 @@ function searchCity(event) {
     cityName = cityName.value;
 
     if (cityName.length > 0) {
-        axios.get(`${apiUrl}q=${cityName}&appid=${apiKey}&units=${unitsCel}`).then(updateCity);
+        axios.get(`${apiUrl}query=${cityName}&key=${apiKey}&units=${unitsCel}`).then(updateCity);
     } else {
         event.preventDefault();
         alert("Please, enter your city");
     }
+}
+
+function formatDate(timestamp) {
+    let currentDate = new Date(timestamp);
+
+    let hour = currentDate.getHours();
+    if (hour < 10) {
+        hour = `0${hour}`;
+    }
+
+    let minute = currentDate.getMinutes();
+    if (minute < 10) {
+        minute = `0${minute}`;
+    }
+
+    let week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    let today = week[currentDate.getDay()];
+
+    return `${today} ${hour}:${minute}`
 }
 
 function updateCity(response) {
@@ -17,14 +36,18 @@ function updateCity(response) {
     let realFeel = document.querySelector("#real-feel strong");
     let humidity = document.querySelector("#humidity strong");
     let wind = document.querySelector("#wind-speed strong");
+    let description = document.querySelector("#weather-is");
+    let currentDate = document.querySelector("#date");
 
     console.log(response.data)
 
-    currentCity.innerHTML = response.data.name;
-    currentTemperature.innerHTML = Math.round(response.data.main.temp);
-    realFeel.innerHTML = `${Math.round(response.data.main.feels_like)}°C`;
-    humidity.innerHTML = `${response.data.main.humidity}%`;
-    wind.innerHTML = `${response.data.wind.speed} km/h`;
+    currentCity.innerHTML = response.data.city;
+    currentTemperature.innerHTML = Math.round(response.data.temperature.current);
+    realFeel.innerHTML = `${Math.round(response.data.temperature.feels_like)}°C`;
+    humidity.innerHTML = `${response.data.temperature.humidity}%`;
+    wind.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
+    description.innerHTML = response.data.condition.description;
+    currentDate.innerHTML = formatDate(response.data.time * 1000);
 }
 
 function updateLocation(event) {
@@ -36,7 +59,7 @@ function updateGeo(location) {
     let lat = location.coords.latitude;
     let lon = location.coords.longitude;
 
-    axios.get(`${apiUrl}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unitsCel}`).then(updateCity);
+    axios.get(`${apiUrl}lon=${lon}&lat=${lat}&key=${apiKey}&units=${unitsCel}`).then(updateCity);
 }
 
 function convertToFar(event) {
@@ -51,23 +74,9 @@ function convertToCel(event) {
     temperature.innerHTML = "13";
 }
 
-let apiKey = "8402ccd9e55983fce71eeeaa1d2bd1fc";
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
+let apiKey = "06fa5f0c173ae8o9ctd4134fb2530e34";
+let apiUrl = "https://api.shecodes.io/weather/v1/current?";
 let unitsCel = "metric";
-
-let currentDate = new Date();
-let today = currentDate.getDay();
-let hour = currentDate.getHours();
-if (hour < 10) {
-    hour = `0${hour}`;
-}
-let minute = currentDate.getMinutes();
-if (minute < 10) {
-    minute = `0${minute}`
-}
-let week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-let myDate = document.querySelector("#date");
-myDate.innerHTML = (`${week[today]} ${hour}:${minute}`);
 
 let newCity = document.querySelector(".d-flex")
 newCity.addEventListener("submit", searchCity);

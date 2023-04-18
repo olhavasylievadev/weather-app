@@ -10,13 +10,6 @@ h1 {
     font-weight: normal;
 }
 
-h2 {
-    padding-top: 20px;
-    font-size: 2.5em;
-    color: #31486C;
-    font-weight: bolder;
-}
-
 a {
     text-decoration: none;
     color: #31486C;
@@ -55,7 +48,7 @@ li strong {
     max-width: 600px;
     max-height: 800px;
     background-color: white;
-    opacity: 90%;
+    opacity: 92%;
     border: none;
     border-radius: 16px;
 }
@@ -82,6 +75,19 @@ li strong {
     border-radius: 8px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     transition: all 200ms ease-in-out;
+}
+
+.weather-temperature {
+    padding-top: 20px;
+    font-size: 2.5em;
+    color: #31486C;
+    font-weight: bolder;
+}
+
+.weather-temperature img {
+    width: 55px;
+    height: auto;
+    margin-right: 20px;
 }
 
 .searchbutton:hover {
@@ -123,6 +129,12 @@ a .author {
     font-weight: lighter;
 }
 
+.system {
+    font-size: 20px;
+    position: relative;
+    top: -15px;
+}
+
 #date {
     text-align: left;
     font-size: 16px;
@@ -135,4 +147,8 @@ a .author {
     margin-bottom: 0;
     font-weight: lighter;
     text-align: left;
+}
+
+#weather-is:first-letter {
+    text-transform: capitalize;
 }
