@@ -4,14 +4,15 @@ body {
 }
 
 h1 {
-    text-align: right;
+    text-align: left;
     color: #435F89;
-    line-height: 1.5em;
+    margin-bottom: 0;
+    font-weight: normal;
 }
 
 h2 {
-    font-size: 3.5em;
-    line-height: 1.5em;
+    padding-top: 20px;
+    font-size: 2.5em;
     color: #31486C;
     font-weight: bolder;
 }
@@ -25,6 +26,28 @@ a:hover {
     text-decoration: underline;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: -420px;
+    top: -80px;
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+li strong {
+    font-weight: bolder;
+    color: #31486C;
+}
+
 .frame {
     display: block;
     margin: 0 auto;
@@ -32,6 +55,7 @@ a:hover {
     max-width: 600px;
     max-height: 800px;
     background-color: white;
+    opacity: 90%;
     border: none;
     border-radius: 16px;
 }
@@ -40,6 +64,7 @@ a:hover {
     width: 85%;
     border: solid 2px #A68DA4;
     border-radius: 8px;
+    font-weight: lighter;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     transition: all 200ms ease-in-out;
 }
@@ -51,6 +76,7 @@ a:hover {
 .searchbutton {
     margin-left: 5px;
     background-color: transparent;
+    font-weight: lighter;
     color: black;
     border: solid 2px #A68DA4;
     border-radius: 8px;
@@ -64,34 +90,22 @@ a:hover {
     border: none;
 }
 
-.conditions {
-    position: relative;
-    top: -80px;
-    left: 380px;
-    font-size: 18px;
-    line-height: 1.5em;
-}
-
-.conditions strong {
-    margin-left: 10px;
-    color: #31486C;
-    font-weight: bolder;
-}
-
 .col {
     text-align: center;
 }
 
 .image {
-    font-size: 3.5em;
+    font-size: 2.5em;
 }
 
 .reg {
     font-size: 16px;
+    font-weight: lighter;
 }
 
 .regular {
     font-size: 16px;
+    font-weight: lighter;
 }
 
 .regular strong {
@@ -106,16 +120,19 @@ a .author {
     text-align: center;
     font-size: 14px;
     margin: 0 auto;
-}
-
-#windy {
-    padding-left: 33px;
+    font-weight: lighter;
 }
 
 #date {
-    position: relative;
-    top: -100px;
-    left: 380px;
-    font-size: 18px;
+    text-align: left;
+    font-size: 16px;
     line-height: 1.5em;
+    font-weight: lighter;
+}
+
+#weather-is {
+    font-size: 14px;
+    margin-bottom: 0;
+    font-weight: lighter;
+    text-align: left;
 }
