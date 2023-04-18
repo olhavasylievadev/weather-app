@@ -89,9 +89,7 @@ li strong {
 }
 
 .weather-temperature img {
-    width: 55px;
-    height: auto;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .searchbutton:hover {
@@ -142,6 +140,10 @@ a .author {
 .weather-temperature .active {
     color: black;
     cursor: auto;
+}
+
+.text-weather {
+    margin-top: 0.72em;
 }
 
 #date {
