@@ -31,7 +31,6 @@ function formatDate(timestamp) {
 }
 
 function getForecast(coords) {
-    console.log(coords)
     let apiForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${coords.longitude}&lat=${coords.latitude}&key=${apiKey}&units=${unitsCel}`;
     axios.get(apiForecast).then(displayForecast);
 }
@@ -47,8 +46,6 @@ function updateCity(response) {
     let weatherIcon = document.querySelector("#icon")
 
     celsiusTemp = Math.round(response.data.temperature.current);
-
-    console.log(response.data)
 
     currentCity.innerHTML = response.data.city;
     currentTemperature.innerHTML = Math.round(response.data.temperature.current);
@@ -75,23 +72,6 @@ function updateGeo(location) {
     axios.get(`${apiUrl}lon=${lon}&lat=${lat}&key=${apiKey}&units=${unitsCel}`).then(updateCity);
 }
 
-function convertToFar(event) {
-    event.preventDefault();
-    let fahTemp = (celsiusTemp * 9) / 5 + 32;
-    let temperature = document.querySelector("#temperature");
-    temperature.innerHTML = Math.round(fahTemp);
-    temperatureCel.classList.remove("active");
-    temperatureFar.classList.add("active");
-}
-
-function convertToCel(event) {
-    event.preventDefault();
-    let temperature = document.querySelector("#temperature");
-    temperature.innerHTML = celsiusTemp;
-    temperatureFar.classList.remove("active");
-    temperatureCel.classList.add("active");
-}
-
 function formatDay(timestamp) {
     let date = new Date(timestamp * 1000);
     let day = date.getDay();
@@ -101,7 +81,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-    console.log(response.data)
     let dailyForecast = response.data.daily;
     let forecast = document.querySelector("#forecast");
 
@@ -137,6 +116,10 @@ function displayForecast(response) {
     forecast.innerHTML = forecastHTML;
 }
 
+function search(city) {
+    axios.get(`${apiUrl}query=${city}&key=${apiKey}&units=${unitsCel}`).then(updateCity);
+}
+
 let apiKey = "06fa5f0c173ae8o9ctd4134fb2530e34";
 let apiUrl = "https://api.shecodes.io/weather/v1/current?";
 let unitsCel = "metric";
@@ -149,9 +132,4 @@ newCity.addEventListener("submit", searchCity);
 let myLocation = document.querySelector("#my-location")
 myLocation.addEventListener("click", updateLocation)
 
-let temperatureCel = document.querySelector(".units");
-let temperatureFar = document.querySelector(".imperial");
-
-temperatureFar.addEventListener("click", convertToFar);
-
-temperatureCel.addEventListener("click", convertToCel);
+search("Berlin");

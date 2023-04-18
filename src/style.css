@@ -23,10 +23,10 @@ ul {
     margin: 0;
     padding: 0;
     position: relative;
-    right: -420px;
-    top: -80px;
+    right: -26em;
+    top: -5.5em;
     font-weight: lighter;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 li {
@@ -37,14 +37,14 @@ li {
 }
 
 li strong {
-    font-weight: bolder;
+    font-weight: 700;
     color: #31486C;
 }
 
 .frame {
     display: block;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1.3em;
     max-width: 600px;
     max-height: 800px;
     background-color: white;
@@ -67,7 +67,6 @@ li strong {
 }
 
 .searchbutton {
-    margin-left: 5px;
     background-color: transparent;
     font-weight: lighter;
     color: black;
@@ -75,21 +74,18 @@ li strong {
     border-radius: 8px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     transition: all 200ms ease-in-out;
+    margin: 0 0.2em;
 }
 
 .weather-temperature {
-    padding-top: 20px;
+    padding-top: 0.3em;
     font-size: 2.5em;
     color: #31486C;
-    font-weight: bolder;
-}
-
-.weather-temperature:hover{
-    cursor: pointer;
+    font-weight: 700;
 }
 
 .weather-temperature img {
-    margin-right: 10px;
+    margin-right: 0.3em;
 }
 
 .searchbutton:hover {
@@ -113,53 +109,41 @@ a .author {
 
 .author {
     text-align: center;
-    font-size: 14px;
+    font-size: 0.85em;
     margin: 0 auto;
     font-weight: lighter;
 }
 
-.system {
-    font-size: 20px;
-    position: relative;
-    top: -15px;
-}
-
-.weather-temperature .active {
-    color: black;
-    cursor: auto;
-}
-
 .text-weather {
-    margin-top: 0.72em;
+    margin-top: 0.62em;
 }
 
 .weather-forecast {
-    margin-top: 20px;
     text-align: center;
-    color: #000;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: lighter;
 }
 
 .weather-forecast strong {
-    font-weight: normal;
+    font-weight: 700;
     color: #31486C;
 }
 
 .weather-forecast-date {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: lighter;
 }
 
 #date {
     text-align: left;
-    font-size: 16px;
-    line-height: 1.5em;
+    font-size: 1em;
+    line-height: 1em;
     font-weight: lighter;
 }
 
 #weather-is {
-    font-size: 14px;
+    font-size: 0.85em;
+    margin-top: 0.2em;
     margin-bottom: 0;
     font-weight: lighter;
     text-align: left;
